@@ -3,7 +3,7 @@ name: teraform plan, apply environment
 on:
   push:
     branches:
-      - main
+      - master
       - infrastructure
 
 jobs:
