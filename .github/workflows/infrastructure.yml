@@ -6,9 +6,6 @@ on:
       - main
       - infrastructure
 
-env:
-  TERRAFORM_VERSION: 1.9.5
-
 jobs:
   terraform:
     defaults:
@@ -26,7 +23,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ env.AWS_REGION }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Setup Terraform with specified version on the runner
         uses: hashicorp/setup-terraform@v2
