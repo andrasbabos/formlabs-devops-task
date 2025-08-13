@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: formlabs
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/andrasbabos/formlabs-devops-task.git
+    targetRevision: HEAD
+    path: manifests
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ${namespace}

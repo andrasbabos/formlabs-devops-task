@@ -22,3 +22,12 @@ helm_charts = {
     create_namespace = true
   }
 }
+
+manifests = {
+  "argo-app" = {
+    path = "manifests/application-app.yml"
+    parameters = {
+      namespace = "default"
+    }
+  }
+}

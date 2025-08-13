@@ -29,3 +29,10 @@ variable "helm_charts" {
     wait    = optional(bool, null)
   }))
 }
+
+variable "manifests" {
+  type = map(object({
+    path       = string
+    parameters = optional(map(string), {})
+  }))
+}

@@ -11,3 +11,10 @@ module "helm_chart" {
 
   helm_chart = var.helm_charts[each.key]
 }
+
+module "manifest" {
+  source = "./modules/manifest"
+  for_each = var.manifests
+
+  manifest = var.manifests[each.key]
+}
