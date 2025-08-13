@@ -4,3 +4,10 @@ module "eks" {
 
   eks_parameters = var.eks_parameters[each.key]
 }
+
+module "helm_chart" {
+  source = "./modules/helm"
+  for_each = var.helm_charts
+
+  helm_chart = var.helm_charts[each.key]
+}
