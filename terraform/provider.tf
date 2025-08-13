@@ -8,6 +8,10 @@ terraform {
       source  = "hashicorp/helm"
       version = "~> 3.0.2"
     }
+    kubectl = {
+      source  = "alekc/kubectl"
+      version = "~> 2.1.3"
+    }
   }
 }
 
@@ -25,5 +29,12 @@ provider "helm" {
       command     = "aws"
     }
   }
+}
+
+provider "kubectl" {
+  host                   = data.aws_eks_cluster.main["formlabs"].endpoint
+  cluster_ca_certificate = base64decode(data.aws_eks_cluster.main["formlabs"].certificate_authority.0.data)
+  token                  = data.aws_eks_cluster_auth.main["formlabs"].token
+  load_config_file       = false
 }
 
