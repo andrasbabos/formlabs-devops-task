@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: formlabs
+  labels:
+    app: formlabs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: formlabs
+  template:
+    metadata:
+      labels:
+        app: formlabs
+    spec:
+      containers:
+      - name: formlabs-devops-task
+        image: ghcr.io/andrasbabos/formlabs-devops-task:application
+        ports:
+        - containerPort: 8080
