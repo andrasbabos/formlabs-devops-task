@@ -13,7 +13,7 @@ module "helm_chart" {
 }
 
 module "manifest" {
-  source = "./modules/manifest"
+  source = "./modules/manifests"
   for_each = var.manifests
 
   manifest = var.manifests[each.key]
