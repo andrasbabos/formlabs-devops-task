@@ -16,4 +16,4 @@ jobs:
 
       - name: build docker image
         id: validate
-        run: build.sh
+        run: ./build.sh
