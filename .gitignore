@@ -141,4 +141,5 @@ cython_debug/
 .venv
 
 # terraform runtime files
-terraform/.terraform
+terraform/infrastructure/.terraform
+terraform/kubernetes/.terraform
